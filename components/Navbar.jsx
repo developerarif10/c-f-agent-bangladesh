@@ -2,6 +2,7 @@
 'use client';
 
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -30,16 +31,13 @@ export default function Navbar() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 transition-all duration-300 border-b ${
-          scrolled ? 'backdrop-blur-md bg-[#0f0f0f]/80 border-white/5 py-4' : 'bg-transparent border-transparent py-6'
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 transition-all duration-300 border-b ${
+          scrolled ? 'backdrop-blur-md bg-[#0f0f0f]/80 border-white/5 py-4' : 'bg-transparent border-transparent py-4'
         }`}
       >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group relative z-50">
-              <div className="w-9 h-9 bg-[#ff4d1c] rounded-lg flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,77,28,0.3)] transition-transform group-hover:scale-110">
-                  <Icon icon="lucide:anchor" width="20" />
-              </div>
-              <span className="font-bold tracking-widest text-sm uppercase text-white">Unique Agents</span>
+              <Image src='/images/banglacargo.webp' alt='banglacargo' width={130} height={130} />
           </Link>
 
           {/* Desktop Nav */}
@@ -88,7 +86,7 @@ export default function Navbar() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#ff4d1c]/10 blur-[80px] rounded-full pointer-events-none"></div>
 
         <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10">
-          <span className="font-bold tracking-widest text-sm uppercase text-white/50">Navigation</span>
+     <Image src='/images/banglacargo.webp' alt='banglacargo' width={130} height={130} />
           <button 
             onClick={() => setIsOpen(false)}
             className="text-white hover:text-[#ff4d1c] transition-colors p-2 hover:bg-white/5 rounded-full"
