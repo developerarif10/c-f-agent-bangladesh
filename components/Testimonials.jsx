@@ -6,7 +6,7 @@
         initial: 'R',
         name: 'Rahim Uddin',
         role: 'CEO, Apex Textiles',
-        text: '"Unique Agents handled our machinery import with absolute precision. The customs clearance was faster than we anticipated."'
+        text: '"Bangla Cargo handled our machinery import with absolute precision. The customs clearance was faster than we anticipated."'
       },
       {
         initial: 'S',

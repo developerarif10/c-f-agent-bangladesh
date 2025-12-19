@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section id="about" className="bg-[#f5f5f5] text-[#0f0f0f] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-            <span className="text-[#ff4d1c] text-xs font-bold tracking-[0.2em] uppercase mb-8 block">About Unique Agents</span>
+            <span className="text-[#ff4d1c] text-xs font-bold tracking-[0.2em] uppercase mb-8 block">About Bangla Cargo</span>
             
             <h2 className="text-3xl md:text-5xl font-medium leading-tight tracking-tight mb-12">
                 “Over 30 years of navigating complex customs regulations to ensure your cargo arrives on time, every time.”

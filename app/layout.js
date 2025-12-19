@@ -8,7 +8,7 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: 'Unique Agents | Global Logistics Partner',
+  title: 'Bangla Cargo | Global Logistics Partner',
   description: 'Next-generation customs clearing and freight forwarding.',
 };
 

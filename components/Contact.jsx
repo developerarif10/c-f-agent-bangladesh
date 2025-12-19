@@ -32,7 +32,7 @@ export default function Contact() {
                         </div>
                         <div>
                             <p className="text-[10px] text-neutral-500 uppercase tracking-widest">Email Us</p>
-                            <span className="text-white">info@uniqueagents.com</span>
+                            <span className="text-white">info@banglacargo.com</span>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 group cursor-pointer">

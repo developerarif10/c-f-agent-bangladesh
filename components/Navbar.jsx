@@ -129,7 +129,7 @@ export default function Navbar() {
           </div>
           
           <div className="pt-4 text-center">
-             <p className="text-xs text-neutral-600 uppercase tracking-widest">© 2024 Unique Agents</p>
+             <p className="text-xs text-neutral-600 uppercase tracking-widest">© 2025 Bangla Cargo</p>
           </div>
         </div>
       </div>

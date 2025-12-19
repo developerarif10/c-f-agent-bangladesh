@@ -1,5 +1,6 @@
 
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -9,10 +10,7 @@ export default function Footer() {
             
             <div className="max-w-sm">
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-8 h-8 bg-[#ff4d1c] rounded flex items-center justify-center text-white">
-                        <Icon icon="lucide:anchor" width="16" />
-                    </div>
-                    <span className="font-bold tracking-widest text-sm uppercase">Unique Agents</span>
+                  <Image src='/images/banglacargo.webp' alt='banglacargo' width={130} height={130} />
                 </div>
                 <h3 className="text-xl font-medium uppercase text-neutral-400 leading-tight">
                     Reliable <br /> <span className="text-white">Port Logistics</span>
@@ -40,7 +38,7 @@ export default function Footer() {
         </div>
 
         <div className="max-w-screen-2xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <p className="text-[10px] text-neutral-600 uppercase tracking-wider">© 2024 Unique Agents Ltd. All Rights Reserved.</p>
+            <p className="text-[10px] text-neutral-600 uppercase tracking-wider">© 2025 Bangla Cargo Ltd. All Rights Reserved.</p>
             <p className="text-[10px] text-neutral-600 uppercase tracking-wider mt-2 md:mt-0">Licence No: 1234/CTG-Customs</p>
         </div>
     </footer>
