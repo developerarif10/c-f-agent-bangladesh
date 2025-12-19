@@ -38,13 +38,13 @@ export default function Calculator() {
   };
 
   return (
-    <section id="calculator" className="bg-[#0f0f0f] py-24 md:py-32 px-6 md:px-12 border-b border-white/5">
+    <section id="calculator" className="bg-[#0f0f0f] py-12 md:py-32 px-6 md:px-12 border-b border-white/5 relative z-10">
         <div className="max-w-screen-2xl mx-auto">
-            <div className="flex flex-col xl:flex-row gap-16 items-start">
+            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-start">
                 {/* Text Info */}
-                <div className="w-full xl:w-1/3 pt-6 sticky top-24">
+                <div className="w-full xl:w-1/3 pt-0 xl:pt-6 xl:sticky xl:top-24 relative z-10">
                     <span className="text-[#ff4d1c] text-[10px] font-bold tracking-[0.2em] uppercase mb-4 block">Estimate Costs</span>
-                    <h2 className="text-4xl md:text-5xl font-medium uppercase leading-tight tracking-tight mb-6">
+                    <h2 className="text-3xl md:text-5xl font-medium uppercase leading-tight tracking-tight mb-6">
                         Precision <br /> Pricing
                     </h2>
                     <p className="text-neutral-500 text-sm leading-relaxed mb-8">
@@ -63,7 +63,7 @@ export default function Calculator() {
                 </div>
 
                 {/* Calculator Form */}
-                <div className="w-full xl:w-2/3 bg-[#141414] p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl relative">
+                <div className="w-full xl:w-2/3 bg-[#141414] p-8 md:p-10 rounded-3xl border border-white/5 relative">
                     <form className="space-y-8 relative z-10" onSubmit={(e) => { e.preventDefault(); calculatePrice(); }}>
                         
                         {/* Row 1: Route */}
