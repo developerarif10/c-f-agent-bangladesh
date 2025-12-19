@@ -1,3 +1,4 @@
+import HeroTracking from '@/components/HeroTracking';
 import About from '../components/About';
 import Calculator from '../components/Calculator';
 import Contact from '../components/Contact';
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <HeroTracking />
       <Calculator />
       <About />
       <Services />

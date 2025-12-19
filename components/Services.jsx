@@ -57,7 +57,7 @@ export default function Services() {
                          <h3 className="text-xl font-semibold uppercase tracking-wide text-white mb-4">Need a Custom Solution?</h3>
                          <p className="text-sm text-white/80 leading-relaxed">Contact our logistics engineers for a tailored supply chain strategy.</p>
                     </div>
-                    <Link href="#contact" className="mt-8 w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                    <Link href="#contact" className="mt-8 w-12 h-12 rounded-full bg-black flex items-center justify-center hover:bg-white hover:text-black transition-colors">
                         <Icon icon="lucide:arrow-up-right" width="20" />
                     </Link>
                 </div>
