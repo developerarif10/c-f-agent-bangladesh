@@ -21,6 +21,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'clientMobile',
+      title: 'Client Mobile Number',
+      type: 'string',
+      description: 'The mobile number of the client responsible for this shipment. Used for verification.',
+      validation: (Rule) => Rule.required().min(10).error('A valid mobile number is required.'),
+    },
+    {
       name: 'timeline',
       title: 'Timeline Events',
       type: 'array',

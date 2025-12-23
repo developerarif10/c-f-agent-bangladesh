@@ -1,4 +1,5 @@
 import { Manrope } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 const manrope = Manrope({ 
@@ -17,6 +18,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={`${manrope.className} bg-[#0f0f0f] text-white antialiased selection:bg-[#ff4d1c] selection:text-white overflow-x-hidden`}>
         {children}
+        <Toaster position="bottom-right" toastOptions={{
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+        }} />
       </body>
     </html>
   );

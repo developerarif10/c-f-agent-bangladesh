@@ -3,27 +3,41 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function HeroTracking() {
   const [trackingId, setTrackingId] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleTrack = async (e) => {
     e.preventDefault();
-    if (!trackingId.trim()) return;
+    
+    // Validation with Toast Feedback
+    if (!trackingId.trim()) {
+      toast.error("Please enter a Container or BL Number", { id: 'err-tracking-id' });
+      return;
+    }
+    
+    if (!mobileNumber.trim()) {
+      toast.error("Please enter your Registered Mobile Number", { id: 'err-mobile-number' });
+      return;
+    }
 
     setLoading(true);
     // Force uppercase as per requirements
     const id = trackingId.toUpperCase();
+    const mobile = mobileNumber.trim();
     
     // Simulate a brief check or just route directly with visual feedback
     // We'll route directly for now but keeping state for UI feedback
     try {
-      await router.push(`/tracking/${id}`);
+      await router.push(`/tracking/${id}?mobile=${encodeURIComponent(mobile)}`);
       // Don't set loading false here as we're navigating away
     } catch (error) {
       setLoading(false);
+      toast.error("Something went wrong. Please try again.", { id: 'err-general' });
     }
   };
 
@@ -43,22 +57,32 @@ export default function HeroTracking() {
              
               <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight">Track Your Shipment</h2>
               <p className="text-neutral-400 text-sm leading-relaxed">
-                Enter your Container Number or Bill of Lading (BL) number below to get real-time status updates on your cargo seamlessly.
+                Enter your Container/BL Number and Registered Mobile Number to view status.
               </p>
             </div>
 
             {/* Input Section */}
-            <div className="w-full max-w-xl mx-auto relative group/input">
+            <div className="w-full max-w-xl mx-auto relative group/input space-y-3">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff4d1c]/50 to-[#ff8c69]/50 rounded-xl blur opacity-20 group-hover/input:opacity-40 transition duration-500"></div>
-              <div className="relative flex gap-2 p-2 bg-[#0f0f0f] border border-white/10 rounded-xl shadow-xl">
+              
+              <div className="relative flex flex-col md:flex-row gap-2 p-2 bg-[#0f0f0f] border border-white/10 rounded-xl shadow-xl">
                 <input
                   type="text"
-                  placeholder="ENTER CONTAINER OR BL NUMBER"
-                  className="flex-1 bg-transparent border-none px-4 py-3 text-white focus:outline-none placeholder:text-neutral-600 font-medium uppercase tracking-wider text-sm md:text-base w-full min-w-0"
+                  placeholder="CONTAINER / BL NUMBER"
+                  className="flex-1 bg-transparent border-none px-4 py-3 text-white focus:outline-none placeholder:text-neutral-600 font-medium uppercase tracking-wider text-sm md:text-base w-full min-w-0 border-b md:border-b-0 md:border-r border-white/5"
                   value={trackingId}
                   onChange={(e) => setTrackingId(e.target.value.toUpperCase())}
                   onKeyDown={(e) => e.key === 'Enter' && handleTrack(e)}
                 />
+                 <input
+                  type="tel"
+                  placeholder="MOBILE NUMBER"
+                  className="flex-1 bg-transparent border-none px-4 py-3 text-white focus:outline-none placeholder:text-neutral-600 font-medium tracking-wider text-sm md:text-base w-full min-w-0"
+                  value={mobileNumber}
+                  onChange={(e) => setMobileNumber(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleTrack(e)}
+                />
+
                 <button
                   onClick={handleTrack}
                   disabled={loading}

@@ -17,11 +17,37 @@ async function getShipment(id) {
   }
 }
 
-export default async function TrackingPage({ params }) {
+export default async function TrackingPage({ params, searchParams }) {
   const { id } = await params;
+  const { mobile } = await searchParams; // Next.js 15 requires awaiting searchParams
+
   const shipment = await getShipment(id);
 
-  if (!shipment) {
+  // Validation Logic
+  const isValid = shipment && shipment.clientMobile && shipment.clientMobile === mobile;
+  
+  // Custom Error Message based on what failed
+  let errorTitle = "Shipment Not Found";
+  let errorMessage = (
+    <>
+      We couldn't locate any shipment with ID:
+      <br />
+      <span className="text-[#FF5722] font-mono font-bold bg-[#FF5722]/5 px-3 py-1 rounded-md mt-2 inline-block border border-[#FF5722]/20">{id}</span>
+    </>
+  );
+
+  if (shipment && (!mobile || mobile !== shipment.clientMobile)) {
+    errorTitle = "Access Denied";
+    errorMessage = (
+      <>
+        Security Verification Failed.
+        <br/>
+        <span className="text-sm block mt-2 text-gray-500">The mobile number provided does not match our records for this shipment.</span>
+      </>
+    );
+  }
+
+  if (!isValid) {
     return (
       <div className="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
         {/* Ambient Backlight */}
@@ -32,11 +58,9 @@ export default async function TrackingPage({ params }) {
             <Package className="w-10 h-10 text-[#FF5722] opacity-80" />
           </div>
           
-          <h1 className="text-3xl font-bold mb-3 tracking-tight">Shipment Not Found</h1>
+          <h1 className="text-3xl font-bold mb-3 tracking-tight text-white">{errorTitle}</h1>
           <p className="text-gray-400 mb-8 leading-relaxed">
-            We couldn't locate any shipment with ID: 
-            <br />
-            <span className="text-[#FF5722] font-mono font-bold bg-[#FF5722]/5 px-3 py-1 rounded-md mt-2 inline-block border border-[#FF5722]/20">{id}</span>
+            {errorMessage}
           </p>
           
           <div className="flex flex-col gap-3">
@@ -45,7 +69,7 @@ export default async function TrackingPage({ params }) {
               className="inline-flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-200 font-bold py-3.5 px-6 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <ArrowLeft className="w-5 h-5" />
-              Try Another ID
+              Try Again
             </Link>
              <Link 
               href="/contact" 
